@@ -1,0 +1,20 @@
+{{ 'section-marvel-page.css' | asset_url | stylesheet_tag }}
+
+<div>
+  Hero {{ section.settings.heroId }}
+</div>
+
+{% schema %}
+{
+  "name": "Marvel Hero",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heroId",
+      "label": "title"
+    }
+  ]
+}
+{% endschema %}
