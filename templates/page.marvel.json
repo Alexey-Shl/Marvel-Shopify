@@ -3,11 +3,68 @@
     "marvel-hero": {
       "type": "marvel-hero",
       "settings": {
-        "heroId": "some text"
+        "hero_title": "Marvel Power Group",
+        "hero_image": "shopify:\/\/shop_images\/robert-bye-R-WtV-QyVnY-unsplash.png",
+        "hero_description": "Marvel Power Group is a woman-owned, ESG-focused transaction broker and commercial advisor. We offer services to clients in power, gas, water, industrial and transportation sectors.",
+        "hero_contact_button": "Contact Us"
+      }
+    },
+    "marvel-mission": {
+      "type": "marvel-mission",
+      "blocks": {
+        "a369ce20-e51f-49c2-90ed-2b87e9db7b17": {
+          "type": "mission-point",
+          "settings": {
+            "point_header": "Header1",
+            "point_text": "text1"
+          }
+        },
+        "f41819d5-78ca-4625-b281-8f007c37fef2": {
+          "type": "mission-point",
+          "settings": {
+            "point_header": "Mission point 2",
+            "point_text": "text2"
+          }
+        },
+        "5b295d39-cedf-4004-87c6-c00b240257d1": {
+          "type": "mission-point",
+          "settings": {
+            "point_header": "",
+            "point_text": ""
+          }
+        },
+        "62908d0f-63cc-4b13-833a-5f8454db48f2": {
+          "type": "mission-point",
+          "settings": {
+            "point_header": "",
+            "point_text": ""
+          }
+        },
+        "ce457248-54c9-425d-aa8a-c724178c7ab6": {
+          "type": "mission-point",
+          "settings": {
+            "point_header": "",
+            "point_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "a369ce20-e51f-49c2-90ed-2b87e9db7b17",
+        "f41819d5-78ca-4625-b281-8f007c37fef2",
+        "5b295d39-cedf-4004-87c6-c00b240257d1",
+        "62908d0f-63cc-4b13-833a-5f8454db48f2",
+        "ce457248-54c9-425d-aa8a-c724178c7ab6"
+      ],
+      "settings": {
+        "mission_title": "Mission",
+        "mission_image": "shopify:\/\/shop_images\/midnight_city.jpg",
+        "mission_header": "Energy Transition is our core and only focus.",
+        "mission_text": "We structure complex, meaningfully large renewable natural gas (RNG) and power transactions for companies committed to environmentally-sound, commercially-ready solutions.\n\nOur principals are experienced practitioners who have run companies, originated and closed complex deals, advocated and negotiated favorable policy and advanced technological innovation. With over three decades of combined experience in renewables specifically, our customers chose us, every time, for our unparalleled industry knowledge, market acumen, professionalism and commitment to their prosperity."
       }
     }
   },
   "order": [
-    "marvel-hero"
+    "marvel-hero",
+    "marvel-mission"
   ]
 }

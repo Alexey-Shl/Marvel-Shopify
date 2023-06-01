@@ -1,0 +1,97 @@
+{{ 'marvel-page-mission.scss.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+.mission-image {
+    background-image: url("{{ section.settings.mission_image | image_url }}");
+    width: 486px;
+    height: 315px;
+    background-size: cover;
+    background-position: center;
+    display: block !important;
+}
+{%- endstyle -%}
+
+<div class="mission-container">
+  <div class="mission-title">
+    {{ section.settings.mission_title }}
+  </div>
+  <div class="mission-separator-stripe"></div>
+  <div class="mission-content-container">
+    <div class="mission-image"></div>
+    <div class="mission-text-container">
+      <span class="mission-header">{{ section.settings.mission_header }}</span>
+      <span class="mission-text">{{ section.settings.mission_text }}</span>
+    </div>
+  </div>
+  <div class="mission-points-container">
+    {%- for block in section.blocks -%}
+      <div class="mission-point">
+        <div class="mission-point-icon">
+        </div>
+        <div class="mission-point-header">
+          {{ block.settings.point_header }}
+        </div>
+        <div class="mission-point-text">
+          {{ block.settings.point_text }}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Marvel Mission",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "mission_title",
+      "label": "Title",
+      "default": "Mission"
+    },
+    {
+      "type": "image_picker",
+      "id": "mission_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "mission_header",
+      "label": "Header",
+      "default": "Energy Transition is our core and only focus."
+    },
+    {
+      "type": "textarea",
+      "id": "mission_text",
+      "label": "Text",
+      "default": "We structure complex, meaningfully large renewable natural gas (RNG) and power transactions for companies committed to environmentally-sound, commercially-ready solutions.\n\nOur principals are experienced practitioners who have run companies, originated and closed complex deals, advocated and negotiated favorable policy and advanced technological innovation. With over three decades of combined experience in renewables specifically, our customers chose us, every time, for our unparalleled industry knowledge, market acumen, professionalism and commitment to their prosperity."
+    }
+  ],
+  "max_blocks": 5,
+  "blocks": [
+    {
+      "type": "mission-point",
+      "name": "Mission Point",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "point_icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "point_header",
+          "label": "Header"
+        },
+        {
+          "type": "text",
+          "id": "point_text",
+          "label": "Text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
