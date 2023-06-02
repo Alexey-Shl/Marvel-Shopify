@@ -12,29 +12,41 @@
 {%- endstyle -%}
 
 <div id="mission" class="mission-container">
-  <div class="mission-title">
-    {{ section.settings.mission_title }}
-  </div>
+  {% if section.settings.mission_title %}
+    <div class="mission-title">
+      {{ section.settings.mission_title }}
+    </div>
+  {% endif %}
   <div class="mission-separator-stripe"></div>
   <div class="mission-content-container">
     <div class="mission-image"></div>
     <div class="mission-text-container">
-      <span class="mission-header">{{ section.settings.mission_header }}</span>
-      <span class="mission-text">{{ section.settings.mission_text }}</span>
+      {% if section.settings.mission_header %}
+        <span class="mission-header">{{ section.settings.mission_header }}</span>
+      {% endif %}
+      {% if section.settings.mission_text %}
+        <span class="mission-text">{{ section.settings.mission_text }}</span>
+      {% endif %}
     </div>
   </div>
   <div class="mission-points-container">
     {%- for block in section.blocks -%}
       <div class="mission-point">
-        <div class="mission-point-icon">
-          {{ block.settings.point_icon | image_url: width: 50, height: 50 | image_tag }}
-        </div>
-        <div class="mission-point-header">
-          {{ block.settings.point_header }}
-        </div>
-        <div class="mission-point-text">
-          {{ block.settings.point_text }}
-        </div>
+        {% if block.settings.point_icon %}
+          <div class="mission-point-icon">
+            {{ block.settings.point_icon | image_url: width: 50, height: 50 | image_tag }}
+          </div>
+        {% endif %}
+        {% if block.settings.point_header %}
+          <div class="mission-point-header">
+            {{ block.settings.point_header }}
+          </div>
+        {% endif %}
+        {% if block.settings.point_text %}
+          <div class="mission-point-text">
+            {{ block.settings.point_text }}
+          </div>
+        {% endif %}
       </div>
     {%- endfor -%}
   </div>

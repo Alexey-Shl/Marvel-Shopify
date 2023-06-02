@@ -1,25 +1,103 @@
 {{ 'marvel-page-team.scss.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-.mission-image {
-    background-image: url("{{ section.settings.mission_image | image_url }}");
-    width: 486px;
-    height: 315px;
-    background-size: cover;
-    background-position: center;
-    display: block !important;
+.team-meet-link::after {
+  display: block !important;
+  content: '';
+  background-image: url("{{ section.settings.team_meet_link | image_url }}");
+  width: 43px;
+  height: 10px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-left: 24px;
+}
+
+.team-card-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 228px;
+  height: 228px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #F9F9F9;
+  mix-blend-mode: multiply;
+  border-radius: 0px 0px 0px 64px;
+}
+
+.team-linkedin-icon {
+  display: block !important;
+  background-image: url("{{ section.settings.team_linkedin_icon | image_url }}");
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.team-mail-icon {
+  display: block !important;
+  background-image: url("{{ section.settings.team_mail_icon | image_url }}");
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 {%- endstyle -%}
 
-<div id="team" class="team-container">
-  <div class="team-title">
-    {{ section.settings.team_title }}
+{% if section.settings.team_title %}
+  <div id="team" class="team-container">
+    <div class="team-title">
+      {{ section.settings.team_title }}
+    </div>
+    <div class="team-separator-stripe"></div>
+    <div class="team-content-container">
+      {%- for block in section.blocks -%}
+        <div class="team-card">
+          {% if block.settings.card_name %}
+            <div class="team-meet-link">
+              Meet {{ block.settings.card_name }}
+            </div>
+          {% endif %}
+          {% if block.settings.card_image %}
+            <div class="team-card-image">
+              {{ block.settings.card_image | image_url: width: 228, height: 228 | image_tag }}
+            </div>
+          {% endif %}
+          {% if block.settings.card_name %}
+            <div class="team-card-name">{{ block.settings.card_name }}</div>
+          {% endif %}
+          {% if block.settings.card_sirname %}
+            <div class="team-card-name">{{ block.settings.card_sirname }}</div>
+          {% endif %}
+          {% if block.settings.card_position %}
+            <div class="team-card-position">{{ block.settings.card_position }}</div>
+          {% endif %}
+          {% if block.settings.card_description %}
+            <div class="team-card-description">{{ block.settings.card_description }}</div>
+          {% endif %}
+          {% if block.settings.card_career_title and block.settings.card_career_history %}
+            <div class="team-card-title team-card-career">{{ block.settings.card_career_title }}</div>
+            <div class="team-card-text">{{ block.settings.card_career_history }}</div>
+          {% endif %}
+          {% if block.settings.card_education_title and block.settings.card_education_history %}
+            <div class="team-card-title team-card-education">{{ block.settings.card_education_title }}</div>
+            <div class="team-card-text">{{ block.settings.card_education_history }}</div>
+          {% endif %}
+          <div class="social-icons-container">
+            {% if block.settings.card_linkedin_link != '' %}
+              <a href="{{ block.settings.card_linkedin_link }}" class="team-linkedin-icon"></a>
+            {% endif %}
+            {% if block.settings.card_email_link != '' %}
+              <a href="{{ block.settings.card_email_link }}" class="team-mail-icon"></a>
+            {% endif %}
+          </div>
+        </div>
+      {%- endfor -%} 
+    </div>
   </div>
-  <div class="team-separator-stripe"></div>
-  <div class="team-content-container">
-
-  </div>
-</div>
+{% endif %}
 
 {% schema %}
 {
@@ -32,6 +110,21 @@
       "id": "team_title",
       "label": "Title",
       "default": "Team"
+    },
+    {
+      "type": "image_picker",
+      "id": "team_meet_link",
+      "label": "Meet icon"
+    },
+    {
+      "type": "image_picker",
+      "id": "team_linkedin_icon",
+      "label": "LinkedIn icon"
+    },
+    {
+      "type": "image_picker",
+      "id": "team_mail_icon",
+      "label": "Mail icon"
     }
   ],
   "max_blocks": 2,
@@ -41,9 +134,63 @@
       "name": "Team Card",
       "settings": [
         {
+          "type": "image_picker",
+          "id": "card_image",
+          "label": "Image"
+        },
+        {
           "type": "text",
           "id": "card_name",
           "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "card_sirname",
+          "label": "Sirname"
+        },
+        {
+          "type": "text",
+          "id": "card_position",
+          "label": "Position"
+        },
+        {
+          "type": "text",
+          "id": "card_description",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "card_career_title",
+          "label": "Career Title",
+          "default": "Career History"
+        },
+        {
+          "type": "html",
+          "id": "card_career_history",
+          "label": "Career History",
+          "default": "<ul>\n<li><\/li>\n<\/ul>"
+        },
+        {
+          "type": "text",
+          "id": "card_education_title",
+          "label": "Education Title",
+          "default": "Education"
+        },
+        {
+          "type": "html",
+          "id": "card_education_history",
+          "label": "Education",
+          "default": "<ul>\n<li><\/li>\n<\/ul>"
+        },
+        {
+          "type": "text",
+          "id": "card_linkedin_link",
+          "label": "LinkedIn"
+        },
+        {
+          "type": "text",
+          "id": "card_email_link",
+          "label": "Email"
         }
       ]
     }

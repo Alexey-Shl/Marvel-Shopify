@@ -112,15 +112,52 @@
         "37aff4c8-ff3e-4159-8906-b85319b933c8": {
           "type": "team-card",
           "settings": {
-            "card_name": "Katherine Ryzhaya"
+            "card_image": "shopify:\/\/shop_images\/photo_2020-05-28_12-43-34_1.png",
+            "card_name": "Katherine",
+            "card_sirname": "Ryzhaya",
+            "card_position": "Founder and CEO",
+            "card_description": "A serial entrepreneur and industry expert, Katherine has nearly 20 years of experience in running infrastructure businesses and closing complex energy transactions. As the sole founder of Marvel, in 2019, Katherine saw an opportunity to run a business her way — leading with high integrity, unmatched focus on service quality and utmost commitment to driving customers’ yields.",
+            "card_career_title": "Career History",
+            "card_career_history": "<ul>\n<li>CEO, Renovar, <strong>Shell Digital Ventures<\/strong>\n<\/li>\n<li>CCO, <strong>Lightsource bp<\/strong>\n<\/li>\n<li>Co-Founder and CCO, <strong>AMS<\/strong> (acquired by Fluence, NASDAQ: FLNC)<\/li>\n<li>\nVP and Director, <strong>Evolution Markets<\/strong>\n<\/li>\n<li>Principal, <strong>Pacific Gas and Electric Company<\/strong>\n<\/li>\n<\/ul>",
+            "card_education_title": "Education",
+            "card_education_history": "<ul>\n<li>BS, Finance, University of San Francisco<\/li>\n<li>MBA, Finance, Duke University<\/li>\n<\/ul>",
+            "card_linkedin_link": "https:\/\/www.linkedin.com",
+            "card_email_link": "https:\/\/www.google.com\/intl\/ru\/gmail\/about\/"
+          }
+        },
+        "051854bb-a973-4c0c-9c52-6ee03012cdcf": {
+          "type": "team-card",
+          "settings": {
+            "card_image": "shopify:\/\/shop_images\/1579049379327_1.png",
+            "card_name": "Sam",
+            "card_sirname": "Peelle",
+            "card_position": "Senior Director and Partner",
+            "card_description": "Sam has over 10 years of experience in renewable power and gas markets, with expertise in renewable fuels, demand side management, energy procurement, energy storage and analytics. Throughout his career, Sam has worked on all sides of the transaction, in each case leading with integrity, customer service and a keen focus on delivering results that positively impact the client’s bottom line and environmental impact.",
+            "card_career_title": "Career History",
+            "card_career_history": "<ul>\n<li>Director, <strong>AMS<\/strong> (acquired by Fluence, NASDAQ: FLNC)<\/li>\n<li>Manager, <strong>EnerNOC<\/strong> (acquired by Enel, BIT: ENEL)<\/li>\n<li>Regional Manager, <strong>United Technologies Corporation<\/strong>\n<\/li>\n<\/ul>",
+            "card_education_title": "Education",
+            "card_education_history": "<ul>\n<li>BA, Political Science, University of Pennsylvania<\/li>\n<li>MBA, Finance, Babson College<\/li>\n<\/ul>",
+            "card_linkedin_link": "",
+            "card_email_link": ""
           }
         }
       },
       "block_order": [
-        "37aff4c8-ff3e-4159-8906-b85319b933c8"
+        "37aff4c8-ff3e-4159-8906-b85319b933c8",
+        "051854bb-a973-4c0c-9c52-6ee03012cdcf"
       ],
       "settings": {
-        "team_title": "Team"
+        "team_title": "Team",
+        "team_meet_link": "shopify:\/\/shop_images\/Group_224.svg",
+        "team_linkedin_icon": "shopify:\/\/shop_images\/linkedin_icon_f6e69496-c27a-4f7f-8ab1-6e67f64bf0ce.svg",
+        "team_mail_icon": "shopify:\/\/shop_images\/mail_icon_180adaf7-76b4-4d1c-a513-0d818e237577.svg"
+      }
+    },
+    "marvel-footer": {
+      "type": "marvel-footer",
+      "settings": {
+        "footer_title": "Contact",
+        "footer_link": "info@marvelpowergroup.com"
       }
     }
   },
@@ -128,6 +165,7 @@
     "marvel-hero",
     "marvel-mission",
     "marvel-services",
-    "marvel-team"
+    "marvel-team",
+    "marvel-footer"
   ]
 }

@@ -1,0 +1,39 @@
+{{ 'marvel-page-footer.scss.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+
+{%- endstyle -%}
+
+<div id="footer" class="footer-container-background">
+  <div class="footer-container">
+    <div class="footer-title">
+      {{ section.settings.footer_title }}
+    </div>
+      <div class="footer-separator-stripe"></div>
+      <div class="footer-content-container">
+        <div class="footer-text">Email us here:</div>
+        <div class="footer-link">{{ section.settings.footer_link }}</div>
+      </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Marvel Footer",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "footer_title",
+      "label": "Title",
+      "default": "Contact"
+    },
+    {
+      "type": "text",
+      "id": "footer_link",
+      "label": "Contact Link"
+    }
+  ]
+}
+{% endschema %}

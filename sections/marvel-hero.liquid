@@ -14,12 +14,16 @@
   {% if section.settings.hero_image %}
     <div class="hero-image">
       <div class="hero-gradient">
-        <div class="hero-title">
-          {{ section.settings.hero_title }}
-        </div>
-        <div class="hero-description">
-          {{ section.settings.hero_description }}
-        </div>
+        {% if section.settings.hero_title %}
+          <div class="hero-title">
+            {{ section.settings.hero_title }}
+          </div>
+        {% endif %}
+        {% if section.settings.hero_description %}
+          <div class="hero-description">
+            {{ section.settings.hero_description }}
+          </div>
+        {% endif %}
         <a class="hero-contact-button">
           {{ section.settings.hero_contact_button }}
           <svg style="margin-left: 7px;" width="20" height="10" viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,15 +32,37 @@
             <path d="M14 6H20V8H14V6Z" fill="#0B0D21"/>
             <path d="M0 6L0 4H6V6H0Z" fill="#0B0D21"/>
             <path d="M8 6.5V3.5L9.33333 2H12V8H9.33333L8 6.5Z" fill="#F9D023"/>
-          </svg>  
+          </svg>
         </a>
         <div class="hero-line"></div>
         <div class="hero-scroll-text">Scroll for more</div>
       </div>
     </div>
   {% else %}
-    {{ section.settings.hero_title }}
-    {{ section.settings.hero_description }}
+    <div class="hero-gradient">
+      {% if section.settings.hero_title %}
+        <div class="hero-title">
+          {{ section.settings.hero_title }}
+        </div>
+      {% endif %}
+      {% if section.settings.hero_description %}
+        <div class="hero-description">
+          {{ section.settings.hero_description }}
+        </div>
+      {% endif %}
+      <a class="hero-contact-button">
+        {{ section.settings.hero_contact_button }}
+        <svg style="margin-left: 7px;" width="20" height="10" viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M6 2.14286L8.46323 0L14 0V10H8.46323L6 7.85714V2.14286Z" fill="#0B0D21"/>
+          <path d="M14 2H20V4H14V2Z" fill="#0B0D21"/>
+          <path d="M14 6H20V8H14V6Z" fill="#0B0D21"/>
+          <path d="M0 6L0 4H6V6H0Z" fill="#0B0D21"/>
+          <path d="M8 6.5V3.5L9.33333 2H12V8H9.33333L8 6.5Z" fill="#F9D023"/>
+        </svg>
+      </a>
+      <div class="hero-line"></div>
+      <div class="hero-scroll-text">Scroll for more</div>
+    </div>
   {% endif %}
 </div>
 
