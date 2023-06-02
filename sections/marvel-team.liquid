@@ -1,0 +1,52 @@
+{{ 'marvel-page-team.scss.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+.mission-image {
+    background-image: url("{{ section.settings.mission_image | image_url }}");
+    width: 486px;
+    height: 315px;
+    background-size: cover;
+    background-position: center;
+    display: block !important;
+}
+{%- endstyle -%}
+
+<div id="team" class="team-container">
+  <div class="team-title">
+    {{ section.settings.team_title }}
+  </div>
+  <div class="team-separator-stripe"></div>
+  <div class="team-content-container">
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Marvel Team",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "team_title",
+      "label": "Title",
+      "default": "Team"
+    }
+  ],
+  "max_blocks": 2,
+  "blocks": [
+    {
+      "type": "team-card",
+      "name": "Team Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "card_name",
+          "label": "Name"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

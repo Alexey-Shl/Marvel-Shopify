@@ -15,36 +15,41 @@
         "a369ce20-e51f-49c2-90ed-2b87e9db7b17": {
           "type": "mission-point",
           "settings": {
-            "point_header": "Header1",
-            "point_text": "text1"
+            "point_icon": "shopify:\/\/shop_images\/Group.svg",
+            "point_header": "$1B",
+            "point_text": "in closed RNG transactions in 2021 alone"
           }
         },
         "f41819d5-78ca-4625-b281-8f007c37fef2": {
           "type": "mission-point",
           "settings": {
-            "point_header": "Mission point 2",
-            "point_text": "text2"
+            "point_icon": "shopify:\/\/shop_images\/Vector_Stroke.svg",
+            "point_header": "$4B",
+            "point_text": "in cumulative Renewable Energy and RNG closings"
           }
         },
         "5b295d39-cedf-4004-87c6-c00b240257d1": {
           "type": "mission-point",
           "settings": {
-            "point_header": "",
-            "point_text": ""
+            "point_icon": "shopify:\/\/shop_images\/Group_258.svg",
+            "point_header": "30 Yrs",
+            "point_text": "of collective industry experience"
           }
         },
         "62908d0f-63cc-4b13-833a-5f8454db48f2": {
           "type": "mission-point",
           "settings": {
-            "point_header": "",
-            "point_text": ""
+            "point_icon": "shopify:\/\/shop_images\/Union.svg",
+            "point_header": "$300M",
+            "point_text": "in capital placed for client ventures"
           }
         },
         "ce457248-54c9-425d-aa8a-c724178c7ab6": {
           "type": "mission-point",
           "settings": {
-            "point_header": "",
-            "point_text": ""
+            "point_icon": "shopify:\/\/shop_images\/Vector.svg",
+            "point_header": "100%",
+            "point_text": "independent and unbiased advice"
           }
         }
       },
@@ -61,10 +66,68 @@
         "mission_header": "Energy Transition is our core and only focus.",
         "mission_text": "We structure complex, meaningfully large renewable natural gas (RNG) and power transactions for companies committed to environmentally-sound, commercially-ready solutions.\n\nOur principals are experienced practitioners who have run companies, originated and closed complex deals, advocated and negotiated favorable policy and advanced technological innovation. With over three decades of combined experience in renewables specifically, our customers chose us, every time, for our unparalleled industry knowledge, market acumen, professionalism and commitment to their prosperity."
       }
+    },
+    "marvel-services": {
+      "type": "marvel-services",
+      "blocks": {
+        "aa05b95e-9b51-477f-b0f6-bb98cab9eda1": {
+          "type": "service-point",
+          "settings": {
+            "service_point_header": "Transaction Support",
+            "service_point_text": "<ul>\n<li>Renewable Natural Gas offtakes<\/li>\n<li>RIN, RTC, REC and LCFS brokerage<\/li>\n<li>Renewable PPA origination<\/li>\n<li>Contract negotiations and structuring<\/li>\n<\/ul>",
+            "service_point_arrow": "shopify:\/\/shop_images\/Group_163.svg"
+          }
+        },
+        "a4b22a02-3dfe-4968-8768-3186460bc08a": {
+          "type": "service-point",
+          "settings": {
+            "service_point_header": "Enterprise Strategy",
+            "service_point_text": "<ul>\n<li>Market advisory<\/li>\n<li>Risk management<\/li>\n<li>Capital sourcing or deployment<\/li>\n<li>Resource optimization<\/li>\n<\/ul>",
+            "service_point_arrow": "shopify:\/\/shop_images\/Group_163.svg"
+          }
+        },
+        "981b3b08-dd4e-48c1-8293-4317c6cf1d0d": {
+          "type": "service-point",
+          "settings": {
+            "service_point_header": "Market Development",
+            "service_point_text": "<ul>\n<li>New venture strategy<\/li>\n<li>Go-to-market architecture<\/li>\n<li>M&amp;A support<\/li>\n<li>Marketing and partnerships<\/li>\n<\/ul>",
+            "service_point_arrow": "shopify:\/\/shop_images\/Group_163.svg"
+          }
+        }
+      },
+      "block_order": [
+        "aa05b95e-9b51-477f-b0f6-bb98cab9eda1",
+        "a4b22a02-3dfe-4968-8768-3186460bc08a",
+        "981b3b08-dd4e-48c1-8293-4317c6cf1d0d"
+      ],
+      "settings": {
+        "service_title": "Services",
+        "service_header": "Our clients are at the forefront of energy transition and innovation. Their mandate is complex: balance project needs with customer demands, lofty investment targets and development complexities. Layer on market volatility and regulatory risk and the scope becomes less manageable in-house. This is where Marvel comes in. We understand the task and bring deep expertise to addressing these challenges.",
+        "service_text": "Our clients are time constrained and under-resourced. Agendas shift, budgets move and priorities change. We understand. We are agile, creative and immediately responsive to your various working styles, governance requirements and evolving needs."
+      }
+    },
+    "marvel-team": {
+      "type": "marvel-team",
+      "blocks": {
+        "37aff4c8-ff3e-4159-8906-b85319b933c8": {
+          "type": "team-card",
+          "settings": {
+            "card_name": "Katherine Ryzhaya"
+          }
+        }
+      },
+      "block_order": [
+        "37aff4c8-ff3e-4159-8906-b85319b933c8"
+      ],
+      "settings": {
+        "team_title": "Team"
+      }
     }
   },
   "order": [
     "marvel-hero",
-    "marvel-mission"
+    "marvel-mission",
+    "marvel-services",
+    "marvel-team"
   ]
 }

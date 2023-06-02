@@ -1,0 +1,87 @@
+{{ 'marvel-page-services.scss.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+
+{%- endstyle -%}
+
+<div id="services" class="service-background">
+  <div class="service-container">
+    <div class="service-title">
+      {{ section.settings.service_title }}
+    </div>
+    <div class="service-separator-stripe"></div>
+    <div class="service-text">
+      {{ section.settings.service_header }}
+    </div>
+    <div class="service-points-container">
+      {%- for block in section.blocks -%}
+        <div class="service-point">
+          <div class="service-point-header">
+            {{ block.settings.service_point_header }}
+          </div>
+          <div class="service-point-text">
+            {{ block.settings.service_point_text }}
+          </div>
+          <div class="service-point-icon">
+            {{ block.settings.service_point_arrow | image_url: width: 46, height: 10 | image_tag }}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+    <div class="service-text">
+      {{ section.settings.service_text }}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Marvel Services",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "service_title",
+      "label": "Title",
+      "default": "Services"
+    },
+    {
+      "type": "textarea",
+      "id": "service_header",
+      "label": "Top text",
+      "default": "Our clients are at the forefront of energy transition and innovation. Their mandate is complex: balance project needs with customer demands, lofty investment targets and development complexities. Layer on market volatility and regulatory risk and the scope becomes less manageable in-house. This is where Marvel comes in. We understand the task and bring deep expertise to addressing these challenges."
+    },
+    {
+      "type": "textarea",
+      "id": "service_text",
+      "label": "Bottom text",
+      "default": "Our clients are time constrained and under-resourced. Agendas shift, budgets move and priorities change. We understand. We are agile, creative and immediately responsive to your various working styles, governance requirements and evolving needs."
+    }
+  ],
+  "max_blocks": 3,
+  "blocks": [
+    {
+      "type": "service-point",
+      "name": "Service Point",
+      "settings": [
+        {
+          "type": "text",
+          "id": "service_point_header",
+          "label": "Header"
+        },
+        {
+          "type": "html",
+          "id": "service_point_text",
+          "label": "Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "service_point_arrow",
+          "label": "Arrow icon"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
