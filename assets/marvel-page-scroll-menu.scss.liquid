@@ -15,37 +15,47 @@
   list-style-type: decimal-leading-zero;
   color: #0B0D21;
   z-index: 99999999;
+  counter-reset: num;
+
+  li {
+    display: block;
+  }
 }
 
-.scroll-menu-white {
-  color: #FFFFFF !important;
-}
-
-.scroll-menu-element {
+.scroll-menu-item {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  gap: 8px;
+  gap: 2px;
   width: fit-content;
-  height: fit-content;
-  align-self: flex-end;
+  height: 100%;
+  color: #0B0D21;
+  text-decoration: none;
+
+  &:before {
+    counter-increment: num;
+    content: "0" counter(num);
+  }
+
+  &::after {
+    display: block !important;
+    content: '';
+    width: 20px;
+    height: 1px;
+    margin-left: 6px;
+    background-color: #0B0D21;
+  }
 }
 
-.scroll-menu-element-line {
-  display: block !important;
-  width: 20px;
-  height: 1px;
-  background-color: #0B0D21;
+.scroll-menu-item-active {
+  &::after {
+    width: 60px !important;
+  }
 }
 
-.scroll-menu-line-active {
-  display: block !important;
-  width: 60px;
-  height: 1px;
-  background-color: #0B0D21;
-}
+.scroll-menu-item-white {
+  color: #FFFFFF !important;
 
-.scroll-menu-line-white {
-  background-color: #FFFFFF;
-} 
+  &::after {
+    background-color: #FFFFFF !important;
+  }
+}
