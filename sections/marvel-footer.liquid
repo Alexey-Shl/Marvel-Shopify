@@ -1,21 +1,51 @@
 {{ 'marvel-page-footer.scss.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-
+  .footer-send-button-icon {
+    display: block !important;
+    background-image: url("{{ section.settings.footer_send_icon | image_url }}");
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
 {%- endstyle -%}
 
-<div id="footer" class="footer-container-background">
-  <div class="footer-container">
-    <div class="footer-title">
-      {{ section.settings.footer_title }}
-    </div>
+{% if section.settings.footer_title %}
+  <div id="Contact" class="footer-container-background">
+    <div class="footer-container">
+      <div class="footer-title">
+        {{ section.settings.footer_title }}
+      </div>
       <div class="footer-separator-stripe"></div>
       <div class="footer-content-container">
-        <div class="footer-text">Email us here:</div>
-        <div class="footer-link">{{ section.settings.footer_link }}</div>
+        <div>
+          <div class="footer-text">Email us here:</div>
+          {% if section.settings.footer_link %}
+            <div class="footer-link">{{ section.settings.footer_link }}</div>
+          {% endif %}
+        </div>
+        <div class="footer-content-container-right">
+          {% if section.settings.footer_text %}
+            <div class="footer-text">{{ section.settings.footer_text }}</div>
+          {% endif %}
+          <form action="POST" class="footer-right-input-container">
+            <input type="text" class="footer-right-input" placeholder="{{ section.settings.footer_name }}">
+            <input type="text" class="footer-right-input" placeholder="{{ section.settings.footer_email }}">
+            <input type="text" class="footer-right-input" placeholder="{{ section.settings.footer_company }}">
+            <button type="submit" class="footer-right-submit-button">
+              {{ section.settings.footer_send_text }}
+              {% if section.settings.footer_send_icon %}
+                <div class="footer-send-button-icon"></div>
+              {% endif %}
+            </button>
+          </form>
+        </div>
       </div>
+    </div>
   </div>
-</div>
+{% endif %}
 
 {% schema %}
 {
@@ -33,6 +63,41 @@
       "type": "text",
       "id": "footer_link",
       "label": "Contact Link"
+    },
+    {
+      "type": "text",
+      "id": "footer_text",
+      "label": "Text",
+      "default": "Stay in the loop by getting on our mailing list"
+    },
+    {
+      "type": "text",
+      "id": "footer_name",
+      "label": "First input placeholder text",
+      "default": "NAME *"
+    },
+    {
+      "type": "text",
+      "id": "footer_email",
+      "label": "Second input placeholder text",
+      "default": "E-MAIL *"
+    },
+    {
+      "type": "text",
+      "id": "footer_company",
+      "label": "Third input placeholder text",
+      "default": "COMPANY *"
+    },
+    {
+      "type": "text",
+      "id": "footer_send_text",
+      "label": "Send button text",
+      "default": "SEND"
+    },
+    {
+      "type": "image_picker",
+      "id": "footer_send_icon",
+      "label": "Send button icon"
     }
   ]
 }

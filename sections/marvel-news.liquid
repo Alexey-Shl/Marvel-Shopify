@@ -1,0 +1,95 @@
+{{ 'marvel-page-news.scss.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+
+{%- endstyle -%}
+
+{% if section.settings.news_title %}
+  <div id="News" class="news">
+    <div class="news-container">
+      <div class="news-title">
+        {{ section.settings.news_title }}
+      </div>
+      <div class="news-separator-stripe"></div>
+      <div class="news-content-container">
+        {% if section.blocks %}
+          {%- for block in section.blocks -%}
+            <a href="{{ block.settings.news_card_link }}" class="news-card">
+              <div class="news-card-image">
+                {{ block.settings.news_card_image | image_url: width: 350, height: 230 | image_tag }}
+              </div>
+              <div class="news-card-content">
+                <div class="news-card-logo">
+                  {{ block.settings.news_card_logo | image_url: width: nil, height: nil | image_tag }}
+                </div>
+                <div class="news-card-text">
+                  {{ block.settings.news_card_description }}
+                </div>
+                <div class="news-card-bottom-content">
+                  <div class="news-card-date">
+                    {{ block.settings.news_card_date }}
+                  </div>
+                  {{ block.settings.news_card_icon | image_url: width: nil, height: nil | image_tag }}
+                </div>
+              </div>
+            </a>
+          {%- endfor -%} 
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Marvel News",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "news_title",
+      "label": "Title",
+      "default": "News"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "news-card",
+      "name": "News Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "news_card_link",
+          "label": "Link"
+        },
+        {
+          "type": "image_picker",
+          "id": "news_card_image",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "news_card_logo",
+          "label": "Logo"
+        },
+        {
+          "type": "text",
+          "id": "news_card_description",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "news_card_date",
+          "label": "Date"
+        },
+        {
+          "type": "image_picker",
+          "id": "news_card_icon",
+          "label": "Arrow icon"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

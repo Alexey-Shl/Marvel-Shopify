@@ -1,5 +1,11 @@
 {
   "sections": {
+    "marvel-scroll-menu": {
+      "type": "marvel-scroll-menu",
+      "settings": {
+
+      }
+    },
     "marvel-hero": {
       "type": "marvel-hero",
       "settings": {
@@ -153,19 +159,73 @@
         "team_mail_icon": "shopify:\/\/shop_images\/mail_icon_180adaf7-76b4-4d1c-a513-0d818e237577.svg"
       }
     },
+    "marvel-news": {
+      "type": "marvel-news",
+      "blocks": {
+        "d607fd11-2878-4364-a6c8-2bcf138fc5ef": {
+          "type": "news-card",
+          "settings": {
+            "news_card_link": "",
+            "news_card_image": "shopify:\/\/shop_images\/denys-nevozhai-dHNF-iBfbrA-unsplash.png",
+            "news_card_logo": "shopify:\/\/shop_images\/Group_239.svg",
+            "news_card_description": "Marvel Celebrates Anniversary, $1B in Closed Transactions",
+            "news_card_date": "July 13, 2021",
+            "news_card_icon": "shopify:\/\/shop_images\/Group_224.svg"
+          }
+        },
+        "46cbf657-f154-4fbc-a59b-eb2c36e10917": {
+          "type": "news-card",
+          "settings": {
+            "news_card_link": "",
+            "news_card_image": "shopify:\/\/shop_images\/915_1.png",
+            "news_card_logo": "shopify:\/\/shop_images\/logo-updated_2x_1.png",
+            "news_card_description": "TRC and Marvel Announce RNG Development Support Partnership",
+            "news_card_date": "May 20, 2021",
+            "news_card_icon": "shopify:\/\/shop_images\/Group_224.svg"
+          }
+        },
+        "231f7b82-c91b-4cc4-90af-9ca037a5767f": {
+          "type": "news-card",
+          "settings": {
+            "news_card_link": "",
+            "news_card_image": "shopify:\/\/shop_images\/915_2.png",
+            "news_card_logo": "shopify:\/\/shop_images\/Group_239.svg",
+            "news_card_description": "Marvel Power Group joins RNG Coalition",
+            "news_card_date": "February 03, 2021",
+            "news_card_icon": "shopify:\/\/shop_images\/Group_224.svg"
+          }
+        }
+      },
+      "block_order": [
+        "d607fd11-2878-4364-a6c8-2bcf138fc5ef",
+        "46cbf657-f154-4fbc-a59b-eb2c36e10917",
+        "231f7b82-c91b-4cc4-90af-9ca037a5767f"
+      ],
+      "settings": {
+        "news_title": "News"
+      }
+    },
     "marvel-footer": {
       "type": "marvel-footer",
       "settings": {
         "footer_title": "Contact",
-        "footer_link": "info@marvelpowergroup.com"
+        "footer_link": "info@marvelpowergroup.com",
+        "footer_text": "Stay in the loop by getting on our mailing list",
+        "footer_name": "NAME *",
+        "footer_email": "E-MAIL *",
+        "footer_company": "COMPANY *",
+        "footer_send_text": "SEND",
+        "footer_send_icon": "shopify:\/\/shop_images\/Group_112.svg"
       }
     }
   },
   "order": [
+    "marvel-scroll-menu",
     "marvel-hero",
     "marvel-mission",
     "marvel-services",
     "marvel-team",
+    "marvel-news",
     "marvel-footer"
   ]
 }
