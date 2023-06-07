@@ -1,53 +1,40 @@
 {{ 'marvel-page-team.scss.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-.team-meet-link::after {
-  display: block !important;
-  content: '';
-  background-image: url("{{ section.settings.team_meet_link | image_url }}");
-  width: 43px;
-  height: 10px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  margin-left: 24px;
-}
+  .team-meet-link::after {
+    display: block !important;
+    content: '';
+    background-image: url("{{ 'long_arrow_yellow.svg' | asset_url }}");
+    width: 43px;
+    height: 10px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-left: 24px;
+  }
 
-.team-card-image {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 228px;
-  height: 228px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: #F9F9F9;
-  mix-blend-mode: multiply;
-  border-radius: 0px 0px 0px 64px;
-}
+  .team-linkedin-icon {
+    display: block !important;
+    background-image: url("{{ section.settings.team_linkedin_icon | image_url }}");
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
 
-.team-linkedin-icon {
-  display: block !important;
-  background-image: url("{{ section.settings.team_linkedin_icon | image_url }}");
-  width: 24px;
-  height: 24px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
-
-.team-mail-icon {
-  display: block !important;
-  background-image: url("{{ section.settings.team_mail_icon | image_url }}");
-  width: 24px;
-  height: 24px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
+  .team-mail-icon {
+    display: block !important;
+    background-image: url("{{ section.settings.team_mail_icon | image_url }}");
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
 {%- endstyle -%}
 
 {% if section.settings.team_title %}
-  <div id="Team" class="team-container">
+  <div id="{{ section.settings.team_title }}" dark="{{ section.settings.team_dark_mode }}" class="team-container">
     <div class="team-title">
       {{ section.settings.team_title }}
     </div>
@@ -56,9 +43,7 @@
       {%- for block in section.blocks -%}
         <div class="team-card">
           {% if block.settings.card_name %}
-            <div class="team-meet-link">
-              Meet {{ block.settings.card_name }}
-            </div>
+            <div class="team-meet-link">Meet {{ block.settings.card_name }}</div>
           {% endif %}
           {% if block.settings.card_image %}
             <div class="team-card-image">
@@ -94,7 +79,7 @@
             {% endif %}
           </div>
         </div>
-      {%- endfor -%} 
+      {%- endfor -%}
     </div>
   </div>
 {% endif %}
@@ -112,9 +97,10 @@
       "default": "Team"
     },
     {
-      "type": "image_picker",
-      "id": "team_meet_link",
-      "label": "Meet Icon"
+      "type": "checkbox",
+      "id": "team_dark_mode",
+      "label": "Scroll Menu Dark Mode",
+      "default": false
     },
     {
       "type": "image_picker",

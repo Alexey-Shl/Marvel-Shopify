@@ -3,7 +3,7 @@
 {%- style -%}
   .news-slider-arrow-prev {
     margin-left: -77px;
-    background-image: url("{{ section.settings.news_slider_prev_icon | image_url }}") !important;
+    background-image: url("{{ 'prev_arrow.svg' | asset_url }}") !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
     content: '' !important;
@@ -11,10 +11,20 @@
 
   .news-slider-arrow-next {
     margin-right: -77px;
-    background-image: url("{{ section.settings.news_slider_next_icon | image_url }}") !important;
+    background-image: url("{{ 'next_arrow.svg' | asset_url }}") !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
     content: '' !important;
+  }
+
+  .news-card-arrow {
+    display: block !important;
+    background-image: url("{{ 'long_arrow_yellow.svg' | asset_url }}");
+    width: 46px;
+    height: 10px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
   }
 {%- endstyle -%}
 
@@ -54,7 +64,7 @@
 </script>
 
 {% if section.settings.news_title %}
-  <div id="News" class="news">
+  <div id="{{ section.settings.news_title }}" dark="{{ section.settings.news_dark_mode }}" class="news">
     <div class="news-container">
       <div class="news-title">
         {{ section.settings.news_title }}
@@ -91,9 +101,7 @@
                             {{ block.settings.news_card_date }}
                           </div>
                         {% endif %}
-                        {% if block.settings.news_card_icon %}
-                          {{ section.settings.news_card_icon | image_url: width: null, height: null | image_tag }}
-                        {% endif %}
+                        <div class="news-card-arrow"></div>
                       </div>
                     </div>
                   </a>
@@ -120,19 +128,10 @@
       "default": "News"
     },
     {
-      "type": "image_picker",
-      "id": "news_slider_prev_icon",
-      "label": "Previous Arrow Icon"
-    },
-    {
-      "type": "image_picker",
-      "id": "news_slider_next_icon",
-      "label": "Next Arrow Icon"
-    },
-    {
-      "type": "image_picker",
-      "id": "news_card_icon",
-      "label": "See More Arrow Icon"
+      "type": "checkbox",
+      "id": "news_dark_mode",
+      "label": "Scroll Menu Dark Mode",
+      "default": false
     }
   ],
   "blocks": [

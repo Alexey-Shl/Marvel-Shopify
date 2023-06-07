@@ -3,7 +3,7 @@
 {%- style -%}
   .footer-send-button-icon {
     display: block !important;
-    background-image: url("{{ section.settings.footer_send_icon | image_url }}");
+    background-image: url("{{ 'electric_fork.svg' | asset_url }}");
     width: 24px;
     height: 24px;
     background-repeat: no-repeat;
@@ -13,7 +13,7 @@
 {%- endstyle -%}
 
 {% if section.settings.footer_title %}
-  <div id="Contact" class="footer-container-background">
+  <div id="{{ section.settings.footer_title }}" dark="{{ section.settings.footer_dark_mode }}" class="footer-container-background">
     <div class="footer-container">
       <div class="footer-title">
         {{ section.settings.footer_title }}
@@ -36,9 +36,7 @@
             <input type="text" class="footer-right-input" placeholder="{{ section.settings.footer_company }}">
             <button type="submit" class="footer-right-submit-button">
               {{ section.settings.footer_send_text }}
-              {% if section.settings.footer_send_icon %}
-                <div class="footer-send-button-icon"></div>
-              {% endif %}
+              <div class="footer-send-button-icon"></div>
             </button>
           </form>
         </div>
@@ -58,6 +56,12 @@
       "id": "footer_title",
       "label": "Title",
       "default": "Contact"
+    },
+    {
+      "type": "checkbox",
+      "id": "footer_dark_mode",
+      "label": "Scroll Menu Dark Mode",
+      "default": false
     },
     {
       "type": "text",
@@ -98,11 +102,6 @@
       "id": "footer_send_text",
       "label": "Send Button Text",
       "default": "SEND"
-    },
-    {
-      "type": "image_picker",
-      "id": "footer_send_icon",
-      "label": "Send Button Icon"
     }
   ]
 }

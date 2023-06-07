@@ -9,11 +9,11 @@
       "type": "marvel-hero",
       "settings": {
         "hero_title": "Marvel Power Group",
+        "hero_dark_mode": true,
         "hero_image": "shopify:\/\/shop_images\/robert-bye-R-WtV-QyVnY-unsplash.png",
         "hero_description": "Marvel Power Group is a woman-owned, ESG-focused transaction broker and commercial advisor. We offer services to clients in power, gas, water, industrial and transportation sectors.",
         "hero_contact_link": "",
-        "hero_contact_button": "Contact Us",
-        "hero_contact_icon": "shopify:\/\/shop_images\/Group_112.svg"
+        "hero_contact_button": "Contact Us"
       }
     },
     "marvel-mission": {
@@ -69,6 +69,7 @@
       ],
       "settings": {
         "mission_title": "Mission",
+        "mission_dark_mode": false,
         "mission_image": "shopify:\/\/shop_images\/midnight_city.jpg",
         "mission_header": "Energy Transition is our core and only focus.",
         "mission_text": "We structure complex, meaningfully large renewable natural gas (RNG) and power transactions for companies committed to environmentally-sound, commercially-ready solutions.\n\nOur principals are experienced practitioners who have run companies, originated and closed complex deals, advocated and negotiated favorable policy and advanced technological innovation. With over three decades of combined experience in renewables specifically, our customers chose us, every time, for our unparalleled industry knowledge, market acumen, professionalism and commitment to their prosperity."
@@ -81,24 +82,21 @@
           "type": "service-point",
           "settings": {
             "service_point_header": "Transaction Support",
-            "service_point_text": "<ul>\n<li>Renewable Natural Gas offtakes<\/li>\n<li>RIN, RTC, REC and LCFS brokerage<\/li>\n<li>Renewable PPA origination<\/li>\n<li>Contract negotiations and structuring<\/li>\n<\/ul>",
-            "service_point_arrow": "shopify:\/\/shop_images\/Group_163.svg"
+            "service_point_text": "<ul>\n<li>Renewable Natural Gas offtakes<\/li>\n<li>RIN, RTC, REC and LCFS brokerage<\/li>\n<li>Renewable PPA origination<\/li>\n<li>Contract negotiations and structuring<\/li>\n<\/ul>"
           }
         },
         "a4b22a02-3dfe-4968-8768-3186460bc08a": {
           "type": "service-point",
           "settings": {
             "service_point_header": "Enterprise Strategy",
-            "service_point_text": "<ul>\n<li>Market advisory<\/li>\n<li>Risk management<\/li>\n<li>Capital sourcing or deployment<\/li>\n<li>Resource optimization<\/li>\n<\/ul>",
-            "service_point_arrow": "shopify:\/\/shop_images\/Group_163.svg"
+            "service_point_text": "<ul>\n<li>Market advisory<\/li>\n<li>Risk management<\/li>\n<li>Capital sourcing or deployment<\/li>\n<li>Resource optimization<\/li>\n<\/ul>"
           }
         },
         "981b3b08-dd4e-48c1-8293-4317c6cf1d0d": {
           "type": "service-point",
           "settings": {
             "service_point_header": "Market Development",
-            "service_point_text": "<ul>\n<li>New venture strategy<\/li>\n<li>Go-to-market architecture<\/li>\n<li>M&amp;A support<\/li>\n<li>Marketing and partnerships<\/li>\n<\/ul>",
-            "service_point_arrow": "shopify:\/\/shop_images\/Group_163.svg"
+            "service_point_text": "<ul>\n<li>New venture strategy<\/li>\n<li>Go-to-market architecture<\/li>\n<li>M&amp;A support<\/li>\n<li>Marketing and partnerships<\/li>\n<\/ul>"
           }
         }
       },
@@ -109,6 +107,7 @@
       ],
       "settings": {
         "service_title": "Services",
+        "service_dark_mode": false,
         "service_header": "Our clients are at the forefront of energy transition and innovation. Their mandate is complex: balance project needs with customer demands, lofty investment targets and development complexities. Layer on market volatility and regulatory risk and the scope becomes less manageable in-house. This is where Marvel comes in. We understand the task and bring deep expertise to addressing these challenges.",
         "service_text": "Our clients are time constrained and under-resourced. Agendas shift, budgets move and priorities change. We understand. We are agile, creative and immediately responsive to your various working styles, governance requirements and evolving needs."
       }
@@ -155,7 +154,7 @@
       ],
       "settings": {
         "team_title": "Team",
-        "team_meet_link": "shopify:\/\/shop_images\/Group_224.svg",
+        "team_dark_mode": false,
         "team_linkedin_icon": "shopify:\/\/shop_images\/linkedin_icon_f6e69496-c27a-4f7f-8ab1-6e67f64bf0ce.svg",
         "team_mail_icon": "shopify:\/\/shop_images\/mail_icon_180adaf7-76b4-4d1c-a513-0d818e237577.svg"
       }
@@ -212,23 +211,21 @@
       ],
       "settings": {
         "news_title": "News",
-        "news_slider_prev_icon": "shopify:\/\/shop_images\/prev_arrow.svg",
-        "news_slider_next_icon": "shopify:\/\/shop_images\/next_arrow.svg",
-        "news_card_icon": "shopify:\/\/shop_images\/Group_224.svg"
+        "news_dark_mode": false
       }
     },
     "marvel-footer": {
       "type": "marvel-footer",
       "settings": {
         "footer_title": "Contact",
+        "footer_dark_mode": true,
         "footer_link": "info@marvelpowergroup.com",
         "footer_contact_link": "",
         "footer_text": "Stay in the loop by getting on our mailing list",
         "footer_name": "NAME *",
         "footer_email": "E-MAIL *",
         "footer_company": "COMPANY *",
-        "footer_send_text": "SEND",
-        "footer_send_icon": "shopify:\/\/shop_images\/Group_112.svg"
+        "footer_send_text": "SEND"
       }
     }
   },

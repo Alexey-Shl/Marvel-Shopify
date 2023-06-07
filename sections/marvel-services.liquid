@@ -1,38 +1,48 @@
 {{ 'marvel-page-services.scss.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-
+  .service-point-arrow {
+    display: block !important;
+    background-image: url("{{ 'long_arrow_white.svg' | asset_url }}");
+    width: 46px;
+    height: 10px;
+    margin-top: 32px;
+    margin-left: 15px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
 {%- endstyle -%}
 
-<div id="Services" class="service-background">
-  <div class="service-container">
-    <div class="service-title">
-      {{ section.settings.service_title }}
-    </div>
-    <div class="service-separator-stripe"></div>
-    <div class="service-text">
-      {{ section.settings.service_header }}
-    </div>
-    <div class="service-points-container">
-      {%- for block in section.blocks -%}
-        <div class="service-point">
-          <div class="service-point-header">
-            {{ block.settings.service_point_header }}
+{% if section.settings.service_title %}
+  <div id="{{ section.settings.service_title }}" dark="{{ section.settings.service_dark_mode }}" class="service-background">
+    <div class="service-container">
+      <div class="service-title">
+        {{ section.settings.service_title }}
+      </div>
+      <div class="service-separator-stripe"></div>
+      <div class="service-text">
+        {{ section.settings.service_header }}
+      </div>
+      <div class="service-points-container">
+        {%- for block in section.blocks -%}
+          <div class="service-point">
+            <div class="service-point-header">
+              {{ block.settings.service_point_header }}
+            </div>
+            <div class="service-point-text">
+              {{ block.settings.service_point_text }}
+            </div>
+            <div class="service-point-arrow"></div>
           </div>
-          <div class="service-point-text">
-            {{ block.settings.service_point_text }}
-          </div>
-          <div class="service-point-icon">
-            {{ block.settings.service_point_arrow | image_url: width: 46, height: 10 | image_tag }}
-          </div>
-        </div>
-      {%- endfor -%}
-    </div>
-    <div class="service-text">
-      {{ section.settings.service_text }}
+        {%- endfor -%}
+      </div>
+      <div class="service-text">
+        {{ section.settings.service_text }}
+      </div>
     </div>
   </div>
-</div>
+{% endif %}
 
 {% schema %}
 {
@@ -45,6 +55,12 @@
       "id": "service_title",
       "label": "Title",
       "default": "Services"
+    },
+    {
+      "type": "checkbox",
+      "id": "service_dark_mode",
+      "label": "Scroll Menu Dark Mode",
+      "default": false
     },
     {
       "type": "textarea",
@@ -75,11 +91,6 @@
           "id": "service_point_text",
           "label": "Text",
           "default": "<ul>\n<li><\/li>\n<\/ul>"
-        },
-        {
-          "type": "image_picker",
-          "id": "service_point_arrow",
-          "label": "Arrow Icon"
         }
       ]
     }
