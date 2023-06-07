@@ -30,7 +30,7 @@
           {% if section.settings.footer_text %}
             <div class="footer-text">{{ section.settings.footer_text }}</div>
           {% endif %}
-          <form action="POST" class="footer-right-input-container">
+          <form action="{{ section.settings.footer_contact_link }}" method="POST" class="footer-right-input-container">
             <input type="text" class="footer-right-input" placeholder="{{ section.settings.footer_name }}">
             <input type="text" class="footer-right-input" placeholder="{{ section.settings.footer_email }}">
             <input type="text" class="footer-right-input" placeholder="{{ section.settings.footer_company }}">
@@ -62,6 +62,11 @@
     {
       "type": "text",
       "id": "footer_link",
+      "label": "Email"
+    },
+    {
+      "type": "text",
+      "id": "footer_contact_link",
       "label": "Contact Link"
     },
     {
@@ -73,31 +78,31 @@
     {
       "type": "text",
       "id": "footer_name",
-      "label": "First input placeholder text",
+      "label": "First Input Placeholder Text",
       "default": "NAME *"
     },
     {
       "type": "text",
       "id": "footer_email",
-      "label": "Second input placeholder text",
+      "label": "Second Input Placeholder Text",
       "default": "E-MAIL *"
     },
     {
       "type": "text",
       "id": "footer_company",
-      "label": "Third input placeholder text",
+      "label": "Third Input Placeholder Text",
       "default": "COMPANY *"
     },
     {
       "type": "text",
       "id": "footer_send_text",
-      "label": "Send button text",
+      "label": "Send Button Text",
       "default": "SEND"
     },
     {
       "type": "image_picker",
       "id": "footer_send_icon",
-      "label": "Send button icon"
+      "label": "Send Button Icon"
     }
   ]
 }

@@ -1,13 +1,58 @@
 .news {
   background: #F9F9F9;
+  width: 100%;
 }
 
 .news-container {
   width: 1110px;
   padding-top: 96px;
-  padding-bottom: 96px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.news-slider-container {
+  width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 96px;
+}
+
+.news-slider-track {
+  padding-bottom: 46px;
+}
+
+.news-slider-arrows {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  background: #FFFFFF !important;
+  opacity: 0.4 !important;
+
+  &:hover {
+    opacity: 1 !important;
+  }
+
+  svg {
+    display: none !important;
+  }
+}
+
+.news-pagination {
+  gap: 10px !important;
+}
+
+.news-pagination-button {
+  width: 8px;
+  height: 8px;
+  background: #F9D023 !important;
+  border-radius: unset !important;
+  opacity: 0.4 !important;
+
+  &.is-active {
+    background: #F9D023 !important;
+    transform: unset !important;
+    opacity: 1 !important;
+  }
 }
 
 .news-title {
@@ -25,7 +70,7 @@
   width: 100px;
   background: #F9D023;
   margin-top: 48px;
-  margin-bottom: 56px;
+  margin-bottom: 41px;
 }
 
 .news-content-container {
@@ -34,26 +79,27 @@
   flex-direction: row;
   justify-content: center;
   gap: 30px;
-
-  &:first-child {
-    .news-card-image {
-      border-radius: 0px 0px 0px 64px;
-      overflow: hidden;
-    }
-  }
 }
 
 .news-card {
   width: 350px;
   height: 568px;
+  margin: 15px;
   background: #FFFFFF;
-  box-shadow: 0px 0px 56px rgba(0, 11, 107, 0.16);
+  box-shadow: 0px 0px 15px rgba(0, 13, 129, 0.08);
   border-radius: 0px 0px 0px 64px;
   display: flex;
   flex-direction: column;
   text-decoration: none;
 
   &:hover {
+    box-shadow: 0px 0px 15px rgba(0, 11, 107, 0.16);
+    
+    .news-card-image {
+      border-radius: 0px 0px 0px 64px;
+      overflow: hidden;
+    }
+
     .news-card-text {
       color: #F9D023;
     }
@@ -62,7 +108,7 @@
 
 .news-card-image {
   width: 100%;
-  height: 230px;
+  min-height: 230px;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -90,6 +136,11 @@
   font-size: 24px;
   line-height: 32px;
   color: #0B0D21;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;  
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .news-card-text:hover {

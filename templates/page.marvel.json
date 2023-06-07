@@ -3,7 +3,6 @@
     "marvel-scroll-menu": {
       "type": "marvel-scroll-menu",
       "settings": {
-
       }
     },
     "marvel-hero": {
@@ -12,7 +11,9 @@
         "hero_title": "Marvel Power Group",
         "hero_image": "shopify:\/\/shop_images\/robert-bye-R-WtV-QyVnY-unsplash.png",
         "hero_description": "Marvel Power Group is a woman-owned, ESG-focused transaction broker and commercial advisor. We offer services to clients in power, gas, water, industrial and transportation sectors.",
-        "hero_contact_button": "Contact Us"
+        "hero_contact_link": "",
+        "hero_contact_button": "Contact Us",
+        "hero_contact_icon": "shopify:\/\/shop_images\/Group_112.svg"
       }
     },
     "marvel-mission": {
@@ -169,8 +170,7 @@
             "news_card_image": "shopify:\/\/shop_images\/denys-nevozhai-dHNF-iBfbrA-unsplash.png",
             "news_card_logo": "shopify:\/\/shop_images\/Group_239.svg",
             "news_card_description": "Marvel Celebrates Anniversary, $1B in Closed Transactions",
-            "news_card_date": "July 13, 2021",
-            "news_card_icon": "shopify:\/\/shop_images\/Group_224.svg"
+            "news_card_date": "July 13, 2021"
           }
         },
         "46cbf657-f154-4fbc-a59b-eb2c36e10917": {
@@ -180,8 +180,7 @@
             "news_card_image": "shopify:\/\/shop_images\/915_1.png",
             "news_card_logo": "shopify:\/\/shop_images\/logo-updated_2x_1.png",
             "news_card_description": "TRC and Marvel Announce RNG Development Support Partnership",
-            "news_card_date": "May 20, 2021",
-            "news_card_icon": "shopify:\/\/shop_images\/Group_224.svg"
+            "news_card_date": "May 20, 2021"
           }
         },
         "231f7b82-c91b-4cc4-90af-9ca037a5767f": {
@@ -191,18 +190,31 @@
             "news_card_image": "shopify:\/\/shop_images\/915_2.png",
             "news_card_logo": "shopify:\/\/shop_images\/Group_239.svg",
             "news_card_description": "Marvel Power Group joins RNG Coalition",
-            "news_card_date": "February 03, 2021",
-            "news_card_icon": "shopify:\/\/shop_images\/Group_224.svg"
+            "news_card_date": "February 03, 2021"
+          }
+        },
+        "ddd1cd33-ef7b-4d36-9899-52e2b32a54aa": {
+          "type": "news-card",
+          "settings": {
+            "news_card_link": "",
+            "news_card_image": "shopify:\/\/shop_images\/denys-nevozhai-dHNF-iBfbrA-unsplash_1.png",
+            "news_card_logo": "shopify:\/\/shop_images\/Group_1.svg",
+            "news_card_description": "Marvel Turns 3, Expands Biomethane Services to Canada and Europe",
+            "news_card_date": "July 06, 2022"
           }
         }
       },
       "block_order": [
         "d607fd11-2878-4364-a6c8-2bcf138fc5ef",
         "46cbf657-f154-4fbc-a59b-eb2c36e10917",
-        "231f7b82-c91b-4cc4-90af-9ca037a5767f"
+        "231f7b82-c91b-4cc4-90af-9ca037a5767f",
+        "ddd1cd33-ef7b-4d36-9899-52e2b32a54aa"
       ],
       "settings": {
-        "news_title": "News"
+        "news_title": "News",
+        "news_slider_prev_icon": "shopify:\/\/shop_images\/prev_arrow.svg",
+        "news_slider_next_icon": "shopify:\/\/shop_images\/next_arrow.svg",
+        "news_card_icon": "shopify:\/\/shop_images\/Group_224.svg"
       }
     },
     "marvel-footer": {
@@ -210,6 +222,7 @@
       "settings": {
         "footer_title": "Contact",
         "footer_link": "info@marvelpowergroup.com",
+        "footer_contact_link": "",
         "footer_text": "Stay in the loop by getting on our mailing list",
         "footer_name": "NAME *",
         "footer_email": "E-MAIL *",

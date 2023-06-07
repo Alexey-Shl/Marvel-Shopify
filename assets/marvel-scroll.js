@@ -5,7 +5,7 @@ const isElementVisible = (elementId) => {
     const windowHeight = window.innerHeight
     const el = document.getElementById(elementId)
     const elementPositionTop = el.getBoundingClientRect().top
-    return (elementPositionTop >= -windowHeight / 2) && (elementPositionTop < windowHeight / 2)
+    return (elementPositionTop >= -windowHeight / 3) && (elementPositionTop < (windowHeight - windowHeight / 3))
 }
 
 const handleLoad = () => {
@@ -23,7 +23,7 @@ const handleLoad = () => {
             listElementContent.classList.add("scroll-menu-item")
             listElementContent.href = "#" + sectionElement.id
 
-            if (isElementVisible(sectionElement.id) && sectionElement.id !== activeElement) {
+            if (isElementVisible(sectionElement.id)) {
                 activeElement = sectionElement.id
                 listElementContent.innerText = sectionElement.id
                 listElementContent.classList.add("scroll-menu-item-active")
@@ -31,22 +31,18 @@ const handleLoad = () => {
                 listElementContent.innerText = " "
             }
 
-            if (activeElement === "Home" || activeElement === "Contact") {
-                listElementContent.classList.add("scroll-menu-item-white")
-            } else {
-                listElementContent.classList.remove("scroll-menu-item-white")
-            }
-
             listElement.append(listElementContent)
             scrollMenu.append(listElement)
         }
     }
 
-    // if (activeElement === "Home" || activeElement === "Contact") {
-    //     scrollMenu.classList.add("scroll-menu-container-white")
-    // } else {
-    //     scrollMenu.classList.remove("scroll-menu-container-white ")
-    // }
+    for (const listElement of scrollMenu.children) {
+        if (activeElement === "Home" || activeElement === "Contact") {
+            listElement.children[0].classList.add("scroll-menu-item-white")
+        } else {
+            listElement.children[0].classList.remove("scroll-menu-item-white")
+        }
+    }
 }
 
 const handleScroll = () => {
@@ -78,12 +74,6 @@ const handleScroll = () => {
                 }
             }
         }
-
-        // if (activeElement === "Home" || activeElement === "Contact") {
-        //     scrollMenu.classList.add("scroll-menu-container-white")
-        // } else {
-        //     scrollMenu.classList.remove("scroll-menu-container-white")
-        // }
     }
 
     hasActiveElementChanged = false
