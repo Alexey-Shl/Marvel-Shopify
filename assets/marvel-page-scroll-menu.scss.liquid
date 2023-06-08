@@ -1,3 +1,5 @@
+$mobile-width: 320.98px;
+
 .scroll-menu-container {
   position: fixed;
   top: 40%;
@@ -16,6 +18,10 @@
   color: #0B0D21;
   z-index: 99999999;
   counter-reset: num;
+
+  @media screen and (max-width: $mobile-width) {
+    display: none;
+  }
 
   li {
     display: block;

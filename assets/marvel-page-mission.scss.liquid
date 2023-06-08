@@ -1,9 +1,19 @@
+$mobile-width: 320.98px;
+
 .mission-container {
   width: 1110px;
   padding-top: 96px;
   padding-bottom: 96px;
   margin-left: auto;
   margin-right: auto;
+
+  @media screen and (max-width: $mobile-width) {
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
 }
 
 .mission-content-container {
@@ -12,6 +22,11 @@
   flex-direction: row;
   justify-content: center;
   gap: 54px;
+
+  @media screen and (max-width: $mobile-width) {
+    flex-direction: column;
+    gap: 32px;
+  }
 }
 
 .mission-title {
@@ -21,6 +36,11 @@
   font-size: 90px;
   line-height: 100px;
   color: #0B0D21;
+
+  @media screen and (max-width: $mobile-width) {
+    font-size: 40px;
+    line-height: 48px;
+  }
 }
 
 .mission-separator-stripe {
@@ -30,10 +50,21 @@
   background: #F9D023;
   margin-top: 48px;
   margin-bottom: 56px;
+
+  @media screen and (max-width: $mobile-width) {
+    height: 4px;
+    width: 65px;
+    margin-top: 32px;
+    margin-bottom: 40px;
+  }
 }
 
 .mission-text-container {
   width: 570px;
+
+  @media screen and (max-width: $mobile-width) {
+    width: 100%;
+  }
 }
 
 .mission-header {
@@ -44,6 +75,11 @@
   line-height: 26px;
   color: #0B0D21;
   letter-spacing: 0;
+
+  @media screen and (max-width: $mobile-width) {
+    font-size: 14px;
+    line-height: 24px;
+  }
 }
 
 .mission-text {
@@ -55,6 +91,11 @@
   color: #0B0D21;
   white-space: pre-wrap;
   letter-spacing: 0;
+
+  @media screen and (max-width: $mobile-width) {
+    font-size: 14px;
+    line-height: 24px;
+  }
 }
 
 .mission-points-container {
@@ -64,6 +105,13 @@
   justify-content: center;
   gap: 30px;
   margin-top: 96px;
+
+  @media screen and (max-width: $mobile-width) {
+    margin-top: 56px;
+    flex-wrap: wrap;
+    gap: 10px;
+    row-gap: 40px;
+  }
 }
 
 .mission-point {
@@ -73,6 +121,9 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+  @media screen and (max-width: $mobile-width) {
+    max-width: 140px;
+  }
 }
 
 .mission-point-icon {
@@ -84,6 +135,11 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 8px;
+
+  @media screen and (max-width: $mobile-width) {
+    width: 56px;
+    height: 56px;
+  }
 }
 
 .mission-point-header {
@@ -94,6 +150,11 @@
   line-height: 56px;
   text-align: center;
   color: #0B0D21;
+
+  @media screen and (max-width: $mobile-width) {
+    font-size: 32px;
+    line-height: 40px;
+  }
 }
 
 .mission-point-text {
@@ -104,4 +165,10 @@
   line-height: 18px;
   text-align: center;
   color: #0B0D21;
+
+  @media screen and (max-width: $mobile-width) {
+    font-size: 12px;
+    line-height: 16px;
+    max-width: 140px;
+  }
 }

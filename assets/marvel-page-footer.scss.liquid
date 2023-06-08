@@ -1,9 +1,19 @@
+$mobile-width: 320.98px;
+
 .footer-container {
   width: 1110px;
   padding-top: 96px;
   padding-bottom: 96px;
   margin-left: auto;
   margin-right: auto;
+
+  @media screen and (max-width: $mobile-width) {
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
 }
 
 .footer-container-background {
@@ -19,6 +29,11 @@
   font-size: 90px;
   line-height: 100px;
   color: #FFFFFF;
+
+  @media screen and (max-width: $mobile-width) {
+    font-size: 40px;
+    line-height: 48px;
+  }
 }
 
 .footer-text {
@@ -28,6 +43,11 @@
   font-size: 40px;
   line-height: 48px;
   color: #FFFFFF;
+
+  @media screen and (max-width: $mobile-width) {
+    font-size: 22px;
+    line-height: 28px;
+  }
 }
 
 .footer-link {
@@ -39,6 +59,12 @@
   color: #F9D023;
   text-underline-offset: 5px;
   text-decoration: underline;
+
+  @media screen and (max-width: $mobile-width) {
+    font-size: 22px;
+    line-height: 28px;
+    overflow-wrap: break-word;
+  }
 }
 
 .footer-separator-stripe {
@@ -48,6 +74,13 @@
   background: #F9D023;
   margin-top: 48px;
   margin-bottom: 56px;
+
+  @media screen and (max-width: $mobile-width) {
+    height: 4px;
+    width: 65px;
+    margin-top: 32px;
+    margin-bottom: 40px;
+  }
 }
 
 .footer-content-container {
@@ -56,6 +89,11 @@
   flex-direction: row;
   justify-content: space-between;
   gap: 111px;
+
+  @media screen and (max-width: $mobile-width) {
+    flex-direction: column;
+    gap: 56px;
+  }
 }
 
 .footer-content-container-right {
@@ -71,6 +109,11 @@
   margin-top: 40px;
   align-items: flex-end;
   gap: 16px;
+
+  @media screen and (max-width: $mobile-width) {
+    gap: 8px;
+    margin-top: 32px;
+  }
 }
 
 .footer-right-input {
@@ -106,4 +149,8 @@
   line-height: 14px;
   letter-spacing: 0.6px;
   color: #0B0D21;
+
+  @media screen and (max-width: $mobile-width) {
+    width: 196px;
+  }
 }

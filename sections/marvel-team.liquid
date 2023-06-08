@@ -31,6 +31,23 @@
     background-size: contain;
     background-position: center;
   }
+
+  @media screen and (max-width: 320.98px) {
+    .team-meet-link::after {
+      background-image: url("{{ 'short_arrow_yellow.svg' | asset_url }}");
+      margin-left: 8px;
+    }
+
+    .team-linkedin-icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    .team-mail-icon {
+      width: 18px;
+      height: 18px;
+    }
+  }
 {%- endstyle -%}
 
 {% if section.settings.team_title %}
@@ -49,12 +66,21 @@
             <div class="team-card-image">
               {{ block.settings.card_image | image_url: width: 228, height: 228 | image_tag }}
             </div>
+            <div class="team-card-image-mobile">
+              {{ block.settings.card_image | image_url: width: 136, height: 136 | image_tag }}
+            </div>
           {% endif %}
           {% if block.settings.card_name %}
             <div class="team-card-name">{{ block.settings.card_name }}</div>
           {% endif %}
           {% if block.settings.card_sirname %}
             <div class="team-card-name">{{ block.settings.card_sirname }}</div>
+          {% endif %}
+          {% if block.settings.card_name and block.settings.card_sirname %}
+            <div class="team-card-name-mobile">
+              {{ block.settings.card_name }}
+              {{ block.settings.card_sirname }}
+            </div>
           {% endif %}
           {% if block.settings.card_position %}
             <div class="team-card-position">{{ block.settings.card_position }}</div>
@@ -68,7 +94,7 @@
           {% endif %}
           {% if block.settings.card_education_title and block.settings.card_education_history %}
             <div class="team-card-title team-card-education">{{ block.settings.card_education_title }}</div>
-            <div class="team-card-text">{{ block.settings.card_education_history }}</div>
+            <div class="team-card-text team-card-education-bottom">{{ block.settings.card_education_history }}</div>
           {% endif %}
           <div class="social-icons-container">
             {% if block.settings.card_linkedin_link != '' %}

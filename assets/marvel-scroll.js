@@ -10,6 +10,17 @@ const isElementVisible = (elementId) => {
     return (elementPositionTop >= -windowHeight / 3) && (elementPositionTop < (windowHeight - windowHeight / 3))
 }
 
+const clickHandler = (e) => {
+    e.preventDefault();
+    const href = e.target.getAttribute("href");
+    const offsetTop = document.querySelector(href).offsetTop;
+
+    scroll({
+        top: offsetTop,
+        behavior: "smooth"
+    });
+}
+
 const handleLoad = () => {
     const sectionList = document.getElementById("MainContent")
     const scrollMenu = document.getElementById("ScrollMenu")
@@ -49,6 +60,8 @@ const handleLoad = () => {
         } else {
             listElement.children[0].classList.remove("scroll-menu-item-white")
         }
+
+        listElement.children[0].addEventListener("click", clickHandler)
     }
 }
 
