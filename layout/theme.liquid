@@ -255,13 +255,19 @@
       {%- render 'cart-drawer' -%}
     {%- endif -%}
 
-    {% sections 'header-group' %}
+    {% if page.handle == "marvel-page-group" %}
+      {% section 'marvel-navigation' %}
+    {% else %}
+      {% sections 'header-group' %}
+    {% endif %}
 
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
 
-    {% comment %} {% sections 'footer-group' %} {% endcomment %}
+    {% if page.handle != "marvel-page-group" %}
+      {% sections 'footer-group' %}
+    {% endif %}
 
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>

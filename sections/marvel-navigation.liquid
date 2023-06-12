@@ -1,0 +1,46 @@
+{{ 'marvel-page-navigation.scss.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .marvel-nav-logo {
+    display: block !important;
+    background-image: url("{{ 'Marvel_logo.svg' | asset_url }}");
+    width: 145.5px;
+    height: 55px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+{%- endstyle -%}
+
+<script>
+  const clickHandler = (e) => {
+    e.preventDefault();
+    const href = e.target.getAttribute('href');
+    const offsetTop = document.querySelector(href).offsetTop;
+
+    scroll({
+      top: offsetTop,
+      behavior: 'smooth',
+    });
+  };
+</script>
+
+<div id="marvel_nav" class="marvel-nav-container">
+  <a href="{{ linklists.marvel_nav.links[0].url }}" class="marvel-nav-logo"></a>
+  <ul class="marvel-nav-links-container">
+    {% for link in linklists.marvel_nav.links %}
+      {% if link.title != 'Home' %}
+        <li>
+          <a id="{{ link.title | append: "-nav" }}" href="{{ link.url }}">{{ link.title }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+
+{% schema %}
+{
+  "name": "Marvel Navigation",
+  "class": "section-header"
+}
+{% endschema %}

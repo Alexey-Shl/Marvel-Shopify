@@ -1,4 +1,4 @@
-$mobile-width: 320.98px;
+$mobile-width: 576.98px;
 
 .news {
   background: #F9F9F9;
@@ -10,6 +10,12 @@ $mobile-width: 320.98px;
   padding-top: 96px;
   margin-left: auto;
   margin-right: auto;
+
+  @media screen and (max-width: 1350.98px) {
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 100%;
+  }
 
   @media screen and (max-width: $mobile-width) {
     padding-left: 15px;
@@ -33,12 +39,22 @@ $mobile-width: 320.98px;
 
 .news-slider-container {
   width: 1140px;
+  max-width: 1140px;
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 96px;
 
+  @media screen and (max-width: 1350.98px) {
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 100%;
+    max-width: 1240px;
+  }
+
   @media screen and (max-width: $mobile-width) {
-    width: 320px;
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
     padding-bottom: 56px;
   }
 }

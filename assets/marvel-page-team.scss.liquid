@@ -1,4 +1,4 @@
-$mobile-width: 320.98px;
+$mobile-width: 576.98px;
 
 .team-container {
   width: 1110px;
@@ -6,6 +6,12 @@ $mobile-width: 320.98px;
   padding-bottom: 96px;
   margin-left: auto;
   margin-right: auto;
+
+  @media screen and (max-width: 1350.98px) {
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 100%;
+  }
 
   @media screen and (max-width: $mobile-width) {
     padding-left: 15px;
@@ -53,8 +59,11 @@ $mobile-width: 320.98px;
   justify-content: center;
   gap: 30px;
 
-  @media screen and (max-width: $mobile-width) {
+  @media screen and (max-width: 1030.98px) {
     flex-direction: column;
+  }
+
+  @media screen and (max-width: $mobile-width) {
     gap: 32px;
   }
 }
@@ -71,6 +80,10 @@ $mobile-width: 320.98px;
   padding-right: 64px;
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 1030.98px) {
+    width: 100%;
+  }
 
   @media screen and (max-width: $mobile-width) {
     padding: 16px 24px 27px;

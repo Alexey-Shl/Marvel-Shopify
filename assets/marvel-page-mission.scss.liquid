@@ -1,4 +1,4 @@
-$mobile-width: 320.98px;
+$mobile-width: 576.98px;
 
 .mission-container {
   width: 1110px;
@@ -6,6 +6,12 @@ $mobile-width: 320.98px;
   padding-bottom: 96px;
   margin-left: auto;
   margin-right: auto;
+
+  @media screen and (max-width: 1350.98px) {
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
 
   @media screen and (max-width: $mobile-width) {
     padding-left: 15px;
@@ -23,8 +29,12 @@ $mobile-width: 320.98px;
   justify-content: center;
   gap: 54px;
 
-  @media screen and (max-width: $mobile-width) {
+
+  @media screen and (max-width: 1350.98px) {
     flex-direction: column;
+  }
+
+  @media screen and (max-width: $mobile-width) {
     gap: 32px;
   }
 }
@@ -62,7 +72,7 @@ $mobile-width: 320.98px;
 .mission-text-container {
   width: 570px;
 
-  @media screen and (max-width: $mobile-width) {
+  @media screen and (max-width: 1350.98px) {
     width: 100%;
   }
 }
@@ -106,7 +116,7 @@ $mobile-width: 320.98px;
   gap: 30px;
   margin-top: 96px;
 
-  @media screen and (max-width: $mobile-width) {
+  @media screen and (max-width: 1350.98px) {
     margin-top: 56px;
     flex-wrap: wrap;
     gap: 10px;

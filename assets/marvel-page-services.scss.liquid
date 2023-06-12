@@ -1,4 +1,4 @@
-$mobile-width: 320.98px;
+$mobile-width: 576.98px;
 
 .service-background {
   width: 100%;
@@ -12,10 +12,15 @@ $mobile-width: 320.98px;
   margin-left: auto;
   margin-right: auto;
 
+  @media screen and (max-width: 1350.98px) {
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 100%;
+  }
+
   @media screen and (max-width: $mobile-width) {
     padding-left: 15px;
     padding-right: 15px;
-    width: 100%;
     padding-top: 56px;
     padding-bottom: 56px;
   }
@@ -74,8 +79,15 @@ $mobile-width: 320.98px;
   margin-top: 56px;
   margin-bottom: 56px;
 
-  @media screen and (max-width: $mobile-width) {
+  @media screen and (max-width: 825.98px) {
     flex-direction: column;
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+
+  @media screen and (max-width: $mobile-width) {
+    margin-top: 56px;
+    margin-bottom: 56px;
     gap: 40px;
   }
 }
