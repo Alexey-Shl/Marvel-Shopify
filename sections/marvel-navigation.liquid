@@ -1,46 +1,117 @@
 {{ 'marvel-page-navigation.scss.css' | asset_url | stylesheet_tag }}
 
+<script src="{{ 'marvel-nav.js' | asset_url }}" defer="defer"></script>
+
 {%- style -%}
   .marvel-nav-logo {
     display: block !important;
     background-image: url("{{ 'Marvel_logo.svg' | asset_url }}");
+    min-width: 145.5px;
     width: 145.5px;
     height: 55px;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
   }
+
+  .marvel-nav-logo-dark-mode {
+    background-image: url("{{ 'logo_dark_mode.svg' | asset_url }}");
+  }
+
+  .marvel-nav-burger-menu-button {
+    display: none;
+    width: 25px;
+    height: 25px;
+    background-image: url("{{ 'burger_menu_icon.svg' | asset_url }}");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+
+  .marvel-nav-burger-menu-close {
+    display: none;
+    width: 18px;
+    height: 18px;
+    background-image: url("{{ 'cross_icon.svg' | asset_url }}");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+
+  .marvel-nav-button-icon {
+    display: block !important;
+    background-image: url("{{ 'electric_fork.svg' | asset_url }}");
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+
+  @media screen and (max-width: 768.98px) {
+    .marvel-nav-burger-menu-button, .marvel-nav-burger-menu-close {
+      display: block !important;
+    }
+  }
+
+  @media screen and (max-width: 576.98px) {
+    .marvel-nav-logo {
+      min-width: 100px;
+      width: 100px;
+      height: 37px;
+    }
+  }
 {%- endstyle -%}
 
-<script>
-  const clickHandler = (e) => {
-    e.preventDefault();
-    const href = e.target.getAttribute('href');
-    const offsetTop = document.querySelector(href).offsetTop;
-
-    scroll({
-      top: offsetTop,
-      behavior: 'smooth',
-    });
-  };
-</script>
-
 <div id="marvel_nav" class="marvel-nav-container">
-  <a href="{{ linklists.marvel_nav.links[0].url }}" class="marvel-nav-logo"></a>
-  <ul class="marvel-nav-links-container">
-    {% for link in linklists.marvel_nav.links %}
-      {% if link.title != 'Home' %}
-        <li>
-          <a id="{{ link.title | append: "-nav" }}" href="{{ link.url }}">{{ link.title }}</a>
-        </li>
-      {% endif %}
-    {% endfor %}
-  </ul>
+  <div class="marvel-nav-content-container">
+    <a href="{{ linklists.marvel_nav.links[0].url }}" class="marvel-nav-logo"></a>
+    <ul class="marvel-nav-links-container">
+      {% for link in linklists.marvel_nav.links %}
+        {% if link.title != 'Home' %}
+          <li name="{{ link.title }}">
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+    <div id="burger_menu_button" class="marvel-nav-burger-menu-button"></div>
+  </div>
+  <div class="marvel-nav-expanded-menu">
+    <ul class="marvel-nav-menu-container">
+      {% for link in linklists.marvel_nav.links %}
+        {% if link.title != 'Home' %}
+          <li name="{{ link.title }}">
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+    {% if section.settings.marvel_nav_contact_link and section.settings.marvel_nav_contact_button %}
+      <a href="{{ section.settings.marvel_nav_contact_link }}" class="marvel-nav-contact-button">
+        {{ section.settings.marvel_nav_contact_button }}
+        <div class="marvel-nav-button-icon"></div>
+      </a>
+    {% endif %}
+  </div>
 </div>
 
 {% schema %}
 {
   "name": "Marvel Navigation",
-  "class": "section-header"
+  "class": "section-header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "marvel_nav_contact_link",
+      "label": "Contact Button Link"
+    },
+    {
+      "type": "text",
+      "id": "marvel_nav_contact_button",
+      "label": "Contact Button Text",
+      "default": "Contact Us"
+    }
+  ]
 }
 {% endschema %}
