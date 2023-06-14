@@ -20,7 +20,9 @@ const isSectionVisible = (elementId) => {
 const toggleNavMenu = () => {
     const navElementContainer = document.getElementById("marvel_nav")
     navElementContainer.children[1].classList.toggle("marvel-nav-show-element")
-    navElementContainer.classList.toggle("marvel-nav-container-fill")
+    if (!isElementAtTheTop("Home") && !isMenuOpen) {
+        navElementContainer.classList.add("marvel-nav-container-fill")
+    }
     navElementContainer.classList.toggle("marvel-nav-container-fill-dark")
 
     const menuLogo = navElementContainer.children[0].children[0]

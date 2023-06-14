@@ -67,10 +67,10 @@
       flickPower: (number = 500),
       omitEnd: true,
       breakpoints: {
-        1230.98: {
+        1150.98: {
           perPage: 2,
         },
-        860.98: {
+        768.98: {
           perPage: 1,
         },
       },
@@ -94,9 +94,10 @@
       </div>
       <div class="news-separator-stripe"></div>
     </div>
-    <div class="news-slider-container">
-      {% if section.blocks %}
-        {% if section.blocks.size > 3 %}
+
+    {% if section.blocks %}
+      {% if section.blocks.size > 3 %}
+        <div class="news-slider-container">
           <div class="splide" aria-label="Splide Basic HTML Example">
             <div class="splide__track news-slider-track">
               <ul class="splide__list">
@@ -107,6 +108,9 @@
                         <div class="news-card-image">
                           {{ block.settings.news_card_image | image_url: width: 350, height: 230 | image_tag }}
                         </div>
+                        <div class="news-card-image-short">
+                          {{ block.settings.news_card_image | image_url: width: 307, height: 230 | image_tag }}
+                        </div>
                         <div class="news-card-image-mobile">
                           {{ block.settings.news_card_image | image_url: width: 258, height: 169 | image_tag }}
                         </div>
@@ -114,10 +118,10 @@
                       <div class="news-card-content">
                         {% if block.settings.news_card_logo %}
                           <div class="news-card-logo">
-                            {{ block.settings.news_card_logo | image_url: width: null, height: 32 | image_tag }}
+                            {{ block.settings.news_card_logo | image_url: width: nil, height: 32 | image_tag }}
                           </div>
                           <div class="news-card-logo-mobile">
-                            {{ block.settings.news_card_logo | image_url: width: null, height: 24 | image_tag }}
+                            {{ block.settings.news_card_logo | image_url: width: nil, height: 24 | image_tag }}
                           </div>
                         {% endif %}
                         {% if block.settings.news_card_description %}
@@ -140,25 +144,36 @@
               </ul>
             </div>
           </div>
-        {% else %}
+        </div>
+      {% else %}
+        <div class="news-slider-container-bottom">
           <div class="news-container-bottom">
             {%- for block in section.blocks -%}
               <a href="{{ block.settings.news_card_link }}" class="news-card news-card-mobile">
                 {% if block.settings.news_card_image %}
-                  <div class="news-card-image">
+                  <div class="news-card-image-regular">
+                    {{ block.settings.news_card_image | image_url: width: 350, height: 230 | image_tag }}
+                  </div>
+                  <div class="news-card-image-desktop-long">
+                    {{ block.settings.news_card_image | image_url: width: 307, height: 230 | image_tag }}
+                  </div>
+                  <div class="news-card-image-desktop-regular">
+                    {{ block.settings.news_card_image | image_url: width: 280, height: 230 | image_tag }}
+                  </div>
+                  <div class="news-card-image-desktop-short">
                     {{ block.settings.news_card_image | image_url: width: 350, height: 230 | image_tag }}
                   </div>
                   <div class="news-card-image-mobile news-card-image-set-cards-mobile">
-                    {{ block.settings.news_card_image | image_url: width: null, height: 191 | image_tag }}
+                    {{ block.settings.news_card_image | image_url: width: nil, height: 191 | image_tag }}
                   </div>
                 {% endif %}
                 <div class="news-card-content">
                   {% if block.settings.news_card_logo %}
                     <div class="news-card-logo">
-                      {{ block.settings.news_card_logo | image_url: width: null, height: 32 | image_tag }}
+                      {{ block.settings.news_card_logo | image_url: width: nil, height: 32 | image_tag }}
                     </div>
                     <div class="news-card-logo-mobile">
-                      {{ block.settings.news_card_logo | image_url: width: null, height: 24 | image_tag }}
+                      {{ block.settings.news_card_logo | image_url: width: nil, height: 24 | image_tag }}
                     </div>
                   {% endif %}
                   {% if block.settings.news_card_description %}
@@ -178,9 +193,9 @@
               </a>
             {%- endfor -%}
           </div>
-        {% endif %}
+        </div>
       {% endif %}
-    </div>
+    {% endif %}
   </div>
 {% endif %}
 

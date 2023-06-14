@@ -194,6 +194,7 @@
         },
         "ddd1cd33-ef7b-4d36-9899-52e2b32a54aa": {
           "type": "news-card",
+          "disabled": true,
           "settings": {
             "news_card_link": "",
             "news_card_image": "shopify:\/\/shop_images\/denys-nevozhai-dHNF-iBfbrA-unsplash_1.png",
