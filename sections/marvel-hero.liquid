@@ -1,7 +1,5 @@
 {{ 'marvel-page-hero.scss.css' | asset_url | stylesheet_tag }}
 
-<script src="{{ 'marvel-scroll.js' | asset_url }}" defer="defer"></script>
-
 {%- style -%}
   .hero-image {
       background-image: url("{{ section.settings.hero_image | image_url }}");
@@ -87,6 +85,7 @@
   "name": "Marvel Hero",
   "tag": "section",
   "class": "section",
+  "limit": 1,
   "settings": [
     {
       "type": "text",
@@ -121,6 +120,11 @@
       "id": "hero_contact_button",
       "label": "Contact Button Text",
       "default": "Contact Us"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Marvel Hero"
     }
   ]
 }

@@ -34,7 +34,9 @@
     </div>
     <div class="mission-separator-stripe"></div>
     <div class="mission-content-container">
-      <div class="mission-image"></div>
+      {% if section.settings.mission_image %}
+        <div class="mission-image"></div>
+      {% endif %}
       <div class="mission-text-container">
         {% if section.settings.mission_header %}
           <span class="mission-header">{{ section.settings.mission_header }}</span>
@@ -126,6 +128,11 @@
           "label": "Text"
         }
       ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Marvel Mission"
     }
   ]
 }

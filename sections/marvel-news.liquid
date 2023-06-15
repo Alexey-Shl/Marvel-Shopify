@@ -52,38 +52,41 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js" defer="defer"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var splide = new Splide('.splide', {
-      type: 'slide',
-      perPage: 3,
-      perMove: 1,
-      rewind: true,
-      rewindByDrag: true,
-      paginationKeyboard: true,
-      easing: 'ease',
-      drag: 'free',
-      snap: true,
-      fixedWidth: 'fit-content',
-      flickPower: (number = 500),
-      omitEnd: true,
-      breakpoints: {
-        1150.98: {
-          perPage: 2,
+  const cardsAmount = {{ section.blocks.size | json }}
+  if (cardsAmount > 3) {
+    document.addEventListener('DOMContentLoaded', function () {
+      let splide = new Splide('.splide', {
+        type: 'slide',
+        perPage: 3,
+        perMove: 1,
+        rewind: true,
+        rewindByDrag: true,
+        paginationKeyboard: true,
+        easing: 'ease',
+        drag: 'free',
+        snap: true,
+        fixedWidth: 'fit-content',
+        flickPower: (number = 500),
+        omitEnd: true,
+        breakpoints: {
+          1150.98: {
+            perPage: 2,
+          },
+          768.98: {
+            perPage: 1,
+          },
         },
-        768.98: {
-          perPage: 1,
+        classes: {
+          arrow: 'splide__arrow news-slider-arrows',
+          prev: 'splide__arrow--prev news-slider-arrow-prev',
+          next: 'splide__arrow--next news-slider-arrow-next',
+          pagination: 'splide__pagination news-pagination',
+          page: 'splide__pagination__page news-pagination-button',
         },
-      },
-      classes: {
-        arrow: 'splide__arrow news-slider-arrows',
-        prev: 'splide__arrow--prev news-slider-arrow-prev',
-        next: 'splide__arrow--next news-slider-arrow-next',
-        pagination: 'splide__pagination news-pagination',
-        page: 'splide__pagination__page news-pagination-button',
-      },
+      });
+      splide.mount();
     });
-    splide.mount();
-  });
+  }
 </script>
 
 {% if section.settings.news_title %}
@@ -98,7 +101,7 @@
     {% if section.blocks %}
       {% if section.blocks.size > 3 %}
         <div class="news-slider-container">
-          <div class="splide" aria-label="Splide Basic HTML Example">
+          <div class="splide">
             <div class="splide__track news-slider-track">
               <ul class="splide__list">
                 {%- for block in section.blocks -%}
@@ -118,10 +121,10 @@
                       <div class="news-card-content">
                         {% if block.settings.news_card_logo %}
                           <div class="news-card-logo">
-                            {{ block.settings.news_card_logo | image_url: width: nil, height: 32 | image_tag }}
+                            {{ block.settings.news_card_logo | image_url: width: null, height: 32 | image_tag }}
                           </div>
                           <div class="news-card-logo-mobile">
-                            {{ block.settings.news_card_logo | image_url: width: nil, height: 24 | image_tag }}
+                            {{ block.settings.news_card_logo | image_url: width: null, height: 24 | image_tag }}
                           </div>
                         {% endif %}
                         {% if block.settings.news_card_description %}
@@ -164,16 +167,16 @@
                     {{ block.settings.news_card_image | image_url: width: 350, height: 230 | image_tag }}
                   </div>
                   <div class="news-card-image-mobile news-card-image-set-cards-mobile">
-                    {{ block.settings.news_card_image | image_url: width: nil, height: 191 | image_tag }}
+                    {{ block.settings.news_card_image | image_url: width: null, height: 191 | image_tag }}
                   </div>
                 {% endif %}
                 <div class="news-card-content">
                   {% if block.settings.news_card_logo %}
                     <div class="news-card-logo">
-                      {{ block.settings.news_card_logo | image_url: width: nil, height: 32 | image_tag }}
+                      {{ block.settings.news_card_logo | image_url: width: null, height: 32 | image_tag }}
                     </div>
                     <div class="news-card-logo-mobile">
-                      {{ block.settings.news_card_logo | image_url: width: nil, height: 24 | image_tag }}
+                      {{ block.settings.news_card_logo | image_url: width: null, height: 24 | image_tag }}
                     </div>
                   {% endif %}
                   {% if block.settings.news_card_description %}
@@ -204,6 +207,7 @@
   "name": "Marvel News",
   "tag": "section",
   "class": "section",
+  "limit": 1,
   "settings": [
     {
       "type": "text",
@@ -249,6 +253,11 @@
           "label": "Date"
         }
       ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Marvel News"
     }
   ]
 }

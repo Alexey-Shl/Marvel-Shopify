@@ -1,11 +1,19 @@
 {{ 'marvel-page-scroll-menu.scss.css' | asset_url | stylesheet_tag }}
 
+<script src="{{ 'marvel-scroll.js' | asset_url }}" defer="defer"></script>
+
 <ol id="ScrollMenu" class="scroll-menu-container"></ol>
 
 {% schema %}
 {
-  "name": "Marvel Menu",
+  "name": "Marvel Scroll Menu",
   "tag": "section",
-  "class": "section"
+  "class": "section",
+  "limit": 1,
+  "presets": [
+    {
+      "name": "Marvel Scroll Menu"
+    }
+  ]
 }
 {% endschema %}

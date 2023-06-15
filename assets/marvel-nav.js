@@ -2,8 +2,7 @@ let activeSectionElement = null
 let hasActiveSectionChanged = false
 let isMenuOpen = false
 
-const isElementAtTheTop = (elementId) => {
-    const el = document.getElementById(elementId)
+const isElementAtTheTop = (el) => {
     const elementPositionTop = el.getBoundingClientRect().top
 
     return elementPositionTop === 0
@@ -12,15 +11,23 @@ const isElementAtTheTop = (elementId) => {
 const isSectionVisible = (elementId) => {
     const windowHeight = window.innerHeight
     const el = document.getElementById(elementId)
-    const elementPositionTop = el.getBoundingClientRect().top
+    if (el) {
+        const elementPositionTop = el.getBoundingClientRect().top
+        const elementPositionBottom = el.getBoundingClientRect().bottom
+        const halfWindowHeight = windowHeight / 2
+        const res = halfWindowHeight > elementPositionTop && halfWindowHeight < elementPositionBottom
 
-    return (elementPositionTop >= -windowHeight / 3) && (elementPositionTop < (windowHeight - windowHeight / 3))
+        return res
+    } else {
+        return false
+    }
 }
 
 const toggleNavMenu = () => {
     const navElementContainer = document.getElementById("marvel_nav")
     navElementContainer.children[1].classList.toggle("marvel-nav-show-element")
-    if (!isElementAtTheTop("Home") && !isMenuOpen) {
+    const homeElement = document.getElementById("Home")
+    if (!homeElement || (!isElementAtTheTop(homeElement) && !isMenuOpen)) {
         navElementContainer.classList.add("marvel-nav-container-fill")
     }
     navElementContainer.classList.toggle("marvel-nav-container-fill-dark")
@@ -37,32 +44,38 @@ const toggleNavMenu = () => {
 
 const handleNavClick = (e) => {
     e.preventDefault();
-
     const href = e.target.getAttribute("href");
-    const offsetTop = document.querySelector(href).offsetTop;
+    const el = document.querySelector(href)
 
-    if (window.innerWidth <= 768.98 && isMenuOpen) {
-        toggleNavMenu()
+    if (el) {
+        const offsetTop = el.offsetTop;
+
+        if (window.innerWidth <= 768.98 && isMenuOpen) {
+            toggleNavMenu()
+        }
+
+        scroll({
+            top: offsetTop,
+            behavior: "smooth"
+        });
     }
-
-    scroll({
-        top: offsetTop,
-        behavior: "smooth"
-    });
 }
 
 const handleNavMenuClick = (e) => {
     e.preventDefault();
-
     const href = e.target.getAttribute("href");
-    const offsetTop = document.querySelector(href).offsetTop;
+    const el = document.querySelector(href)
 
-    toggleNavMenu()
+    if (el) {
+        const offsetTop = el.offsetTop;
 
-    scroll({
-        top: offsetTop,
-        behavior: "smooth"
-    });
+        toggleNavMenu()
+
+        scroll({
+            top: offsetTop,
+            behavior: "smooth"
+        });
+    }
 }
 
 const handleBurgerMenuClick = (e) => {
@@ -71,10 +84,15 @@ const handleBurgerMenuClick = (e) => {
 }
 
 const fillNavBackground = (navElement) => {
-    const isAtTheTop = isElementAtTheTop("Home")
+    const homeElement = document.getElementById("Home")
+    if (homeElement) {
+        const isAtTheTop = isElementAtTheTop(homeElement)
 
-    if (isAtTheTop) {
-        navElement.classList.remove("marvel-nav-container-fill")
+        if (isAtTheTop) {
+            navElement.classList.remove("marvel-nav-container-fill")
+        } else {
+            navElement.classList.add("marvel-nav-container-fill")
+        }
     } else {
         navElement.classList.add("marvel-nav-container-fill")
     }
@@ -103,7 +121,7 @@ const handleNavLoad = () => {
         const childrenLength = section.children.length
         const sectionElement = section.children[childrenLength - 1]
 
-        if (sectionElement.id !== "ScrollMenu" && isElementVisible(sectionElement.id)) {
+        if (sectionElement.id !== "ScrollMenu" && isSectionVisible(sectionElement.id)) {
             activeSectionElement = sectionElement.id
             hasActiveSectionChanged = true
 
@@ -132,7 +150,7 @@ const handleNavScroll = () => {
         const childrenLength = section.children.length
         const sectionElement = section.children[childrenLength - 1]
 
-        if (sectionElement.id !== "ScrollMenu" && isElementVisible(sectionElement.id) && sectionElement.id !== activeSectionElement && !hasActiveSectionChanged) {
+        if (sectionElement.id !== "ScrollMenu" && isSectionVisible(sectionElement.id) && sectionElement.id !== activeSectionElement && !hasActiveSectionChanged) {
             activeSectionElement = sectionElement.id
             hasActiveSectionChanged = true
 

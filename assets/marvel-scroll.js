@@ -5,20 +5,31 @@ const darkModeSections = []
 const isElementVisible = (elementId) => {
     const windowHeight = window.innerHeight
     const el = document.getElementById(elementId)
-    const elementPositionTop = el.getBoundingClientRect().top
 
-    return (elementPositionTop >= -windowHeight / 3) && (elementPositionTop < (windowHeight - windowHeight / 3))
+    if (el) {
+        const elementPositionTop = el.getBoundingClientRect().top
+        const elementPositionBottom = el.getBoundingClientRect().bottom
+        const halfWindowHeight = windowHeight / 2
+        const res = halfWindowHeight > elementPositionTop && halfWindowHeight < elementPositionBottom
+
+        return res
+    } else {
+        return false
+    }
 }
 
 const clickHandler = (e) => {
     e.preventDefault();
     const href = e.target.getAttribute("href");
-    const offsetTop = document.querySelector(href).offsetTop;
+    const el = document.querySelector(href)
 
-    scroll({
-        top: offsetTop,
-        behavior: "smooth"
-    });
+    if (el) {
+        const offsetTop = el.offsetTop;
+        scroll({
+            top: offsetTop,
+            behavior: "smooth"
+        });
+    }
 }
 
 const handleLoad = () => {
